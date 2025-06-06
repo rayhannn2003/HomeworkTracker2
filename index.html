@@ -1,33 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homework Tracker</title>
-  <link rel="stylesheet" href="style.css" />
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-analytics.js"></script>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Firebase realtime database CRUD example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
+
 <body>
 
-  <h1>📚 Homework Tracker</h1>
-
-  <div id="homework-form">
-    <input type="text" id="title" placeholder="Homework Title" />
-    <textarea id="description" placeholder="Homework Description"></textarea>
-    <button onclick="addHomework()">Add Homework</button>
+  <div class='container'>
+    <div class='header'>
+      <img src="logo.png" width="100%" alt="">
+      <h4>Real-Time Database CRUD example</h4>
+    </div>
+    <br />
+    <form id='reviewForm'>
+      <input type="hidden" id='hiddenId' />     
+      <div class="input-field">
+        <label for="fullName">Full Name</label>
+        <input type="text" id='fullName' />
+      </div>
+      <br />
+      <div class="input-field">
+        <label for="message">Review Contents</label>
+        <textarea class="materialize-textarea" id='message'></textarea>
+      </div>
+      <div class="input-field">
+        <label for="tags">Tags</label>
+        <input type="text" id='tags' />
+      </div>
+      <br />
+      <br />
+      <button class="waves-effect waves-light btn" type='submit'>Add / Update review</button>
+    </form>
+    <br /><br /><br />
+    <ul id='reviews'></ul>
   </div>
 
-  <h2>Homework List</h2>
-  <ul id="homework-list"></ul>
+  <!-- JavaScript imports -->
+  <script src="https://www.gstatic.com/firebasejs/11.9.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.9.0/firebase-database.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+ <script type="module" src="app.js"></script>
 
-  <!-- Firebase Config -->
-  <script src="firebase-config.js"></script>
-
-  <!-- Main Script -->
-  <script src="script.js"></script>
 </body>
+
 </html>
